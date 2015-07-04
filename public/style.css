@@ -1,0 +1,39 @@
+body{
+}
+.center {
+    margin: auto;
+    width: 30%;
+    padding: 10px;
+}
+
+table {
+    font-family: Arial, sans-serif;
+    width: 100%;
+        border:3px solid #007cd9;
+
+    margin-top: 55px;
+}
+
+table td, th {
+    font-size: 1em;
+    padding: 7px 7px 2px 3px;
+}
+
+table th {
+    font-size: 1.1em;
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 4px;
+    background-color: #007cd9;
+    color: #ffffff;
+}
+
+table tr.group td {
+    background-color: #e4e4eb;
+    color: #000000;
+}
+
+table tr.total td {
+    background-color: #e4e4eb;
+    color: #007cd9;
+}

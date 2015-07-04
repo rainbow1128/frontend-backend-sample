@@ -1,0 +1,6 @@
+{
+  "name": "Backend frontend sample",
+  "description": "A backend and frontend project using by Node.js and javascript",
+  "repository": "https://github.com/tafrishy/frontend-backend-sample",
+  "keywords": ["node", "express", "static"]
+}

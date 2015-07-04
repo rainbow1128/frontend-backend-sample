@@ -1,0 +1,89 @@
+<html>
+<head>
+	<link rel="stylesheet" href="style.css"> 
+</head>
+
+<script type="text/javascript" src="jquery.min.js"></script> 
+<script type="text/javascript" src="underscore.js"></script> 
+ 			
+<script> 
+	$(document).ready(function(){
+		$.ajax({
+				type: "GET",
+				url: 'http://localhost:5000/listprice',
+				data:"",
+				contentType: "application/json; charset=utf-8",
+				dataType: "json",
+				success: function(data) {
+				  groupingData(data);
+				},
+				error: function(e) {
+					alert('error!');
+				}
+		   });
+	});
+
+	function drawTable(data)
+	{
+		for (var i = 0; i < data.length; i++)
+			drawRow(data[i]);
+	}
+
+	function drawRow(rowData) 
+	{
+		var row = $("<tr />")
+		$("#priceDataTable").append(row);
+		row.append($("<td>" + rowData.price + "</td>"));
+	}
+
+	function drawGroupRow(rowData) 
+	{
+		var row = $("<tr  class='group'/>")
+		$("#priceDataTable").append(row);
+		row.append($("<td>" +   rowData + "</td>"));
+	}
+
+	function drawTotalRow(rowData) 
+	{
+		var row = $("<tr  class='total'/>")
+		$("#priceDataTable").append(row);
+		row.append($("<td> Total: " +   rowData + "</td>"));
+	}
+
+	function groupingData(data)
+	{
+		groups = _.groupBy(data, "unit");
+		for(var child in groups )
+		{
+			var childArray = groups[child];
+			drawGroupRow(child);
+			var gtotal= 0 ; 
+			for(var j=0; j < childArray.length; j++ )
+			{			
+				drawRow(childArray[j]);
+				gtotal = gtotal + convertStrinToNum(childArray[j].price);
+			}
+			drawTotalRow(gtotal);
+		}
+	}
+
+	function convertStrinToNum(string_number)
+	{
+ 		var temp = string_number.replace(/[^0-9-.,]/g, '');
+ 		temp = temp.replace(/,(?=[^,]{2}$)/g, '.');
+ 		temp = temp.replace(/[^0-9-.]/g, '');
+ 		return parseFloat(temp);
+	}
+
+</script>
+
+<bodey>
+	<div class="center">
+		<table id="priceDataTable">
+		<tr>
+			<th>Price</th>
+		</tr>
+		</table>
+	</div>
+</bodey>
+</html>

@@ -1,0 +1,25 @@
+{
+  "name": "backend-frontend-sample",
+  "version": "0.1.0",
+  "description": "A backend and frontend project using by Node.js and javascript",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.0.0"
+  },
+  "engines": {
+    "node": "0.12.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tafrishy/frontend-backend-sample"
+  },
+  "keywords": [
+    "node",
+    "express"
+  ],
+  "author": "Elham Tafrishy",
+  "license": "MIT"
+}
